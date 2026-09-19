@@ -306,41 +306,40 @@
       to running a live access certification campaign, moving 3,000+ identities, and
       chasing down real integration bugs along the way.
     </p>
-    <div class="badges">
-      <span class="badge">midPoint</span>
-      <span class="badge">Microsoft Entra ID</span>
-      <span class="badge">Oracle Cloud</span>
-      <span class="badge">Docker</span>
-      <span class="badge">PostgreSQL</span>
-      <span class="badge">SCIM</span>
-      <span class="badge">SAML / OIDC</span>
-      <span class="badge">PIM</span>
-      <span class="badge">Conditional Access</span>
-      <span class="badge">Lifecycle Workflows</span>
-    </div>
   </header>
 
   <section>
-    <h2><span class="num">01</span> Overview</h2>
+    <h2><span class="num">01</span> Skills demonstrated</h2>
+    <ul class="facts">
+      <li><strong>Identity Governance:</strong> Access Reviews &middot; Access Certification &middot; RBAC &middot; Segregation of Duties &middot; Access Remediation &middot; Joiner-Mover-Leaver &middot; Least Privilege</li>
+      <li><strong>Identity Administration:</strong> Provisioning &middot; Deprovisioning &middot; SCIM &middot; Microsoft Graph &middot; Lifecycle Workflows</li>
+      <li><strong>Authentication &amp; Access:</strong> SAML &middot; OIDC &middot; Conditional Access &middot; MFA &middot; PIM</li>
+      <li><strong>Platforms &amp; Tools:</strong> Microsoft Entra ID &middot; midPoint &middot; PowerShell &middot; Docker &middot; PostgreSQL &middot; Oracle Cloud</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">02</span> Overview</h2>
     <p>
-      IAM administration and IGA are often used interchangeably, but they cover different
-      areas of identity and access management. Administration grants and revokes access. Governance decides who should
-      have it, why, and can prove that decision still holds up when reviewed. What follows
-      traces both sides of that work together: the provisioning and lifecycle automation that
-      grants and revokes access, and the governance decisions, roles, certifications, reviews,
-      that justify it.
+      An end-to-end IGA build implementing identity lifecycle management, access governance,
+      certification, automated provisioning, privileged access, and SSO across
+      <strong>midPoint</strong> and <strong>Microsoft Entra ID</strong>. Built and governed
+      3,000+ synthetic identities, ran access reviews with automated remediation, configured
+      SCIM provisioning and JML workflows, tested Conditional Access and PIM, and automated
+      bulk provisioning through Microsoft Graph and PowerShell.
     </p>
     <p>
-      Two identity platforms run side by side: <strong>midPoint</strong>, an open-source
-      IGA platform, and a <strong>Microsoft Entra ID</strong> tenant. Governance concepts
-      were built and validated in midPoint independent of any single platform, then mapped
-      onto Entra specifically, to see how the same model holds up in a real enterprise
-      directory.
+      Two platforms run side by side deliberately: governance concepts were built and
+      validated in midPoint, an open-source IGA platform, independent of any single vendor,
+      then mapped onto Entra specifically to see how the same model holds up in a real
+      enterprise directory. Administration grants and revokes access; governance decides who
+      should have it, why, and can prove that decision still holds up when reviewed. What
+      follows traces both sides of that work together.
     </p>
   </section>
 
   <section>
-    <h2><span class="num">02</span> Infrastructure</h2>
+    <h2><span class="num">03</span> Infrastructure</h2>
     <p>
       Provisioned an Oracle Cloud free-tier VM (Ampere ARM), and configured networking,
       IP-restricted firewall rules, and SSH key-based access myself before installing
@@ -366,7 +365,7 @@
   </section>
 
   <section>
-    <h2><span class="num">03</span> Data foundation</h2>
+    <h2><span class="num">04</span> Data foundation</h2>
     <p>
       Generated a realistic synthetic dataset of <strong>3,000+ employees</strong> for a
       fictional Nordic healthcare organization spanning Sweden, Denmark, and Norway.
@@ -393,7 +392,7 @@
   </section>
 
   <section>
-    <h2><span class="num">04</span> Governance modeling &amp; access certification</h2>
+    <h2><span class="num">05</span> Governance modeling &amp; access certification</h2>
     <p>
       Designed custom governance roles, including Finance Analyst, IT Support, and Marketing
       Contributor, alongside midPoint's built-in roles, and assigned them to test identities
@@ -417,7 +416,7 @@
   </section>
 
   <section>
-    <h2><span class="num">05</span> Scaling governance into Entra</h2>
+    <h2><span class="num">06</span> Scaling governance into Entra</h2>
     <p>
       Once the free tenant's limits became a blocker for deeper governance work, I activated a
       Microsoft Entra Suite trial (Identity Governance, PIM, and P2), then rebuilt the same
@@ -436,7 +435,7 @@
   </section>
 
   <section>
-    <h2><span class="num">06</span> Provisioning &amp; lifecycle automation</h2>
+    <h2><span class="num">07</span> Provisioning &amp; lifecycle automation</h2>
     <h3>SCIM-based provisioning</h3>
     <p>
       Configured SCIM-based automated provisioning against a live SCIM 2.0 test server, set up
@@ -456,7 +455,7 @@
   </section>
 
   <section>
-    <h2><span class="num">07</span> Access control depth</h2>
+    <h2><span class="num">08</span> Access control depth</h2>
     <h3>Least-privilege app registration</h3>
     <p>
       Registered a dedicated app to test Microsoft's attribute-level permission gating on the
@@ -481,13 +480,54 @@
   </section>
 
   <section>
-    <h2><span class="num">08</span> Capstone: bulk provisioning at scale</h2>
+    <h2><span class="num">09</span> Directory administration &amp; external collaboration</h2>
+    <p>
+      Alongside the governance and provisioning work above, built out the administrative and
+      external-collaboration surface of the tenant, the everyday configuration that governance
+      depends on but doesn't replace.
+    </p>
+    <h3>External collaboration &amp; guest lifecycle</h3>
+    <p>
+      Configured external collaboration settings and onboarded guest users through both the
+      single-invite flow and a bulk CSV invite, then reproduced the same invite flow
+      programmatically through Microsoft Graph PowerShell.
+    </p>
+    <div class="callout">
+      <p class="eyebrow-2">Federated identity provider</p>
+      <p>
+        Configured Google as a federated identity provider end-to-end: registered and configured
+        an OAuth client in Google Cloud Console, wired it into Entra External Identities, and
+        confirmed the full B2B redemption flow, an invited guest is redirected straight to
+        Google's own sign-in and consent screen with no separate email-verification fallback.
+        Diagnosed and resolved an initial <code>invalid_client</code> error caused by an
+        OAuth client propagation delay on Google's side.
+      </p>
+    </div>
+    <h3>Tenant configuration &amp; licensing</h3>
+    <p>
+      Managed tenant-level directory properties, and configured group-based license assignment
+      by creating a Microsoft 365 group and assigning a license to the group rather than to
+      individual users, the standard pattern for license governance at scale.
+    </p>
+    <h3>Security baseline</h3>
+    <p>
+      Configured smart lockout thresholds to balance brute-force protection against legitimate
+      user lockout risk, and used Identity Secure Score to benchmark the tenant's overall
+      security posture (94.7%), triaging the one remaining recommendation, a second Global
+      Admin, as a deliberate, accepted risk in a single-admin lab tenant rather than an
+      oversight.
+    </p>
+  </section>
+
+  <section>
+    <h2><span class="num">10</span> Capstone: bulk provisioning at scale</h2>
     <div class="capstone-block">
       <p class="eyebrow-2">The exercise</p>
       <p>
-        Led a bulk-provisioning exercise moving <strong>~3,000 midPoint-sourced identities</strong>
-        into Entra ID via Microsoft Graph and PowerShell, evaluating and deciding against
-        midPoint's native Entra connector in favor of a Bulk Create approach.
+        Designed and executed a bulk-provisioning exercise moving
+        <strong>~3,000 midPoint-sourced identities</strong> into Entra ID via Microsoft Graph
+        and PowerShell, evaluating and deciding against midPoint's native Entra connector in
+        favor of a Bulk Create approach.
       </p>
       <ul class="facts">
         <li><strong>Fixed an authentication-architecture bug:</strong> the integration kept forcing an interactive browser/WAM broker sign-in flow, which breaks down at real scale. Resolved by switching to app-only, client-credentials authentication.</li>
