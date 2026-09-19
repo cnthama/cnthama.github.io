@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Self-Hosted IGA Lab — Identity Governance Case Study</title>
+<title>IGA Lab: Identity Governance Case Study</title>
 <meta name="description" content="A self-hosted Identity Governance and Administration lab built independently on Oracle Cloud with midPoint and Microsoft Entra ID.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,7 +68,7 @@
   }
 
   .wrap {
-    max-width: 760px;
+    max-width: 780px;
     margin: 0 auto;
     padding: 0 20px;
   }
@@ -87,9 +87,17 @@
     margin: 0 0 14px;
   }
 
+  .byline {
+    font-size: 14.5px;
+    color: var(--text-muted);
+    margin: 10px 0 0;
+  }
+
+  .byline a { font-weight: 500; }
+
   h1 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(28px, 5vw, 38px);
+    font-size: clamp(22px, 3.6vw, 29px);
     line-height: 1.15;
     margin: 0 0 16px;
     font-weight: 700;
@@ -99,7 +107,7 @@
     font-size: 18px;
     color: var(--text-muted);
     margin: 0;
-    max-width: 58ch;
+    max-width: 60ch;
   }
 
   .badges {
@@ -142,9 +150,26 @@
     font-weight: 400;
   }
 
+  h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    margin: 24px 0 10px;
+    color: var(--text);
+  }
+
+  h3:first-of-type { margin-top: 4px; }
+
   p { color: var(--text-muted); margin: 0 0 14px; }
   p:last-child { margin-bottom: 0; }
   strong { color: var(--text); font-weight: 600; }
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--text);
+  }
 
   .stack-flow {
     display: flex;
@@ -171,10 +196,10 @@
 
   ul.facts {
     list-style: none;
-    margin: 0;
+    margin: 0 0 14px;
     padding: 0;
     display: grid;
-    gap: 12px;
+    gap: 10px;
   }
 
   ul.facts li {
@@ -196,26 +221,51 @@
 
   ul.facts li strong { color: var(--text); }
 
-  .capstone {
+  .callout {
     background: var(--capstone-bg);
     border: 1px solid var(--capstone-border);
     border-radius: 12px;
-    padding: 22px 24px;
-    margin-top: 18px;
+    padding: 20px 22px;
+    margin: 18px 0;
   }
 
-  .capstone .eyebrow-2 {
+  .callout .eyebrow-2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--capstone-text);
+    margin: 0 0 9px;
+    font-weight: 500;
+  }
+
+  .callout p { color: var(--capstone-text); opacity: 0.92; margin-bottom: 0; }
+  .callout p strong { color: var(--capstone-text); }
+  .callout p + p { margin-top: 8px; }
+
+  .capstone-block {
+    background: var(--capstone-bg);
+    border: 1px solid var(--capstone-border);
+    border-radius: 14px;
+    padding: 26px 26px;
+    margin-top: 8px;
+  }
+
+  .capstone-block .eyebrow-2 {
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: var(--capstone-text);
-    margin: 0 0 10px;
-    font-weight: 500;
+    margin: 0 0 12px;
+    font-weight: 600;
   }
 
-  .capstone p { color: var(--capstone-text); opacity: 0.92; }
-  .capstone p strong { color: var(--capstone-text); }
+  .capstone-block p { color: var(--capstone-text); opacity: 0.92; }
+  .capstone-block p strong { color: var(--capstone-text); }
+  .capstone-block ul.facts li::before { background: var(--capstone-text); }
+  .capstone-block ul.facts li { color: var(--capstone-text); opacity: 0.92; }
+  .capstone-block ul.facts li strong { color: var(--capstone-text); opacity: 1; }
 
   footer {
     padding: 40px 0 72px;
@@ -249,11 +299,12 @@
 
 <div class="wrap">
   <header class="hero">
-    <p class="eyebrow">Independent project — outside coursework</p>
-    <h1>Self-Hosted Identity Governance &amp; Administration Lab</h1>
+    <h1>Identity Governance &amp; Administration Lab</h1>
+    <p class="byline">By Catherine N. &middot; <a href="https://www.linkedin.com/in/catherine-nthama/" target="_blank" rel="noopener">LinkedIn</a></p>
     <p class="lede">
-      A dual-platform IGA environment built from the ground up to govern and administer
-      thousands of identities — combining an open-source IGA engine with Microsoft Entra ID.
+      An end-to-end IGA build across two platforms at once, from provisioning the server
+      to running a live access certification campaign, moving 3,000+ identities, and
+      chasing down real integration bugs along the way.
     </p>
     <div class="badges">
       <span class="badge">midPoint</span>
@@ -261,27 +312,37 @@
       <span class="badge">Oracle Cloud</span>
       <span class="badge">Docker</span>
       <span class="badge">PostgreSQL</span>
+      <span class="badge">SCIM</span>
+      <span class="badge">SAML / OIDC</span>
     </div>
   </header>
 
   <section>
     <h2><span class="num">01</span> Overview</h2>
     <p>
-      I built this lab on my own initiative to go beyond the identity work I do day to day,
-      and get hands-on with the governance side of IAM: certification campaigns, access
-      reviews, and provisioning at scale, not just administration.
+      IAM administration and IGA are often used interchangeably, but they cover different
+      areas of identity and access management. Administration grants and revokes access. Governance decides who should
+      have it, why, and can prove that decision still holds up when reviewed. What follows
+      traces both sides of that work together: the provisioning and lifecycle automation that
+      grants and revokes access, and the governance decisions, roles, certifications, reviews,
+      that justify it.
     </p>
     <p>
-      The environment runs two identity platforms side by side — <strong>midPoint</strong>,
-      an open-source IGA platform, and a <strong>Microsoft Entra ID</strong> tenant —
-      so I could compare how governance and provisioning are handled on each, and integrate
-      them together.
+      Two identity platforms run side by side: <strong>midPoint</strong>, an open-source
+      IGA platform, and a <strong>Microsoft Entra ID</strong> tenant. Governance concepts
+      were built and validated in midPoint independent of any single platform, then mapped
+      onto Entra specifically, to see how the same model holds up in a real enterprise
+      directory.
     </p>
   </section>
 
   <section>
     <h2><span class="num">02</span> Infrastructure</h2>
-    <p>Self-provisioned and self-managed, from the VM up.</p>
+    <p>
+      Provisioned an Oracle Cloud free-tier VM (Ampere ARM), and configured networking,
+      IP-restricted firewall rules, and SSH key-based access myself before installing
+      anything on top.
+    </p>
     <div class="stack-flow">
       <div class="node">Oracle Cloud VM<br><small>Ampere ARM · Always Free</small></div>
       <span class="arrow">→</span>
@@ -290,63 +351,157 @@
       <div class="node">midPoint<br><small>+ PostgreSQL backend</small></div>
     </div>
     <p>
-      An Entra ID tenant was stood up alongside midPoint from the start of the project,
-      initially seeded with around 25 test users while the integration was built out.
+      Deployed midPoint with a PostgreSQL backend via Docker Compose, a deliberate choice
+      over running it locally: the environment stays reachable and running continuously,
+      not just when my own machine happens to be on.
+    </p>
+    <p>
+      A Microsoft Entra ID tenant with test users was stood up alongside midPoint from the
+      very start, giving the project a dual-platform foundation from day one rather than
+      bolting Entra on afterward.
     </p>
   </section>
 
   <section>
-    <h2><span class="num">03</span> Scale &amp; provisioning</h2>
+    <h2><span class="num">03</span> Data foundation</h2>
     <p>
-      To move past small-scale testing, I generated a synthetic dataset of
-      <strong>3,000+ employees</strong> for a fictional Nordic healthcare organization
-      and governed the full identity set end-to-end in midPoint.
+      Generated a realistic synthetic dataset of <strong>3,000+ employees</strong> for a
+      fictional Nordic healthcare organization spanning Sweden, Denmark, and Norway.
     </p>
     <p>
-      For the Entra ID side, I evaluated midPoint's native Entra connector and decided
-      against it, provisioning the 3,000+ identities into Entra ID via Bulk Create instead.
+      Built a CSV connector resource in midPoint, configuring schema discovery, delimiters,
+      and unique identifiers, then created attribute mappings translating raw CSV fields
+      (name, title, department, locality, and more) into governed identity attributes.
     </p>
-    <div class="capstone">
+    <div class="callout">
       <p class="eyebrow-2">Problem solved</p>
       <p>
-        While integrating with Microsoft Graph PowerShell, I hit a reproducible
-        authentication bug — the module kept forcing an interactive browser / WAM broker
-        sign-in flow, which breaks down at any real scale. I diagnosed the cause and
-        resolved it by switching to <strong>app-only, client-credentials authentication</strong>,
-        which made the bulk provisioning work reliably and unattended.
+        Diagnosed a real architectural issue: accounts were being read correctly from the
+        CSV source, but not converted into actual governed User identities. In midPoint, an
+        <strong>Account</strong> is just raw data read from a resource, while a
+        <strong>User</strong> (the "focus" object) is the actual governed identity that roles
+        and policies attach to. Turning one into the other depends on a Synchronization
+        reaction, a rule that tells midPoint what to do when it finds an account with no
+        matching User yet. That reaction was missing, so accounts were being discovered but
+        never linked to a User. Once configured, all 3,000 identities were imported and
+        governed end-to-end.
       </p>
     </div>
   </section>
 
   <section>
-    <h2><span class="num">04</span> Governance &amp; access certification</h2>
+    <h2><span class="num">04</span> Governance modeling &amp; access certification</h2>
     <p>
-      Using a Microsoft Entra Suite trial (Identity Governance, PIM, and P2 features),
-      I ran a live <strong>access certification campaign covering 13 cases</strong> — reviewing
-      and attesting who had access to what, and why, rather than just provisioning access
-      and leaving it unmanaged.
+      Designed custom governance roles, including Finance Analyst, IT Support, and Marketing
+      Contributor, alongside midPoint's built-in roles, and assigned them to test identities
+      to create a realistic access landscape to govern.
+    </p>
+    <p>
+      Ran a live <strong>access certification campaign</strong> in midPoint,
+      reviewing and revoking access for specific, real reasons:
+    </p>
+    <ul class="facts">
+      <li><strong>Access creep:</strong> identities holding access they'd accumulated over time but no longer needed.</li>
+      <li><strong>Segregation-of-duties conflicts:</strong> identities holding two roles that shouldn't be combined.</li>
+      <li><strong>Role/job mismatches:</strong> access that no longer matched the identity's actual job function.</li>
+    </ul>
+    <p>
+      Confirmed that automated remediation correctly revoked access after each case was decided,
+      rather than just flagging it. Session notes, a command reference, and a running
+      troubleshooting log were kept throughout the build, the same discipline this kind of
+      audit trail depends on.
     </p>
   </section>
 
   <section>
-    <h2><span class="num">05</span> Breadth covered</h2>
-    <p>Beyond the core build, the lab was also used to work hands-on with:</p>
-    <ul class="facts">
-      <li><strong>Conditional Access</strong> policy design and testing</li>
-      <li><strong>Privileged Identity Management (PIM)</strong> for just-in-time privileged access</li>
-      <li><strong>SSO</strong> across both SAML and OIDC</li>
-      <li><strong>SCIM</strong>-based provisioning</li>
-      <li><strong>Entra Lifecycle Workflows</strong> for joiner/mover/leaver automation</li>
-    </ul>
+    <h2><span class="num">05</span> Scaling governance into Entra</h2>
+    <p>
+      Once the free tenant's limits became a blocker for deeper governance work, I activated a
+      Microsoft Entra Suite trial (Identity Governance, PIM, and P2), then rebuilt the same
+      governance model natively in Entra: Security groups with a weekly-recurring,
+      auto-applying, owner-reviewed Access Review.
+    </p>
+    <div class="callout">
+      <p class="eyebrow-2">Platform lesson</p>
+      <p>
+        Rebuilding the model natively surfaced a genuine platform distinction: the
+        Administrator view in Entra Access Reviews is monitoring-only. The real approve/deny
+        actions happen from the reviewer's own side, at <code>myaccess.microsoft.com</code>,
+        not from the admin console.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">06</span> Provisioning &amp; lifecycle automation</h2>
+    <h3>SCIM-based provisioning</h3>
+    <p>
+      Configured SCIM-based automated provisioning against a live SCIM 2.0 test server, set up
+      as a non-gallery Enterprise App using Bearer authentication.
+    </p>
+    <div class="callout">
+      <p class="eyebrow-2">Problems solved</p>
+      <p>Diagnosed and resolved a scope-assignment error, then a schema-validation error, before confirming a genuine successful provisioning event in Entra's own logs.</p>
+    </div>
+    <h3>Lifecycle Workflows</h3>
+    <p>
+      Designed Entra ID Lifecycle Workflows for joiner/mover/leaver automation, including a
+      time-triggered leaver workflow that fires three days after an employee's end date, scoped
+      to a specific department, with automated license removal, Teams removal, and account
+      deletion tasks chained together.
+    </p>
+  </section>
+
+  <section>
+    <h2><span class="num">07</span> Access control depth</h2>
+    <h3>Least-privilege app registration</h3>
+    <p>
+      Registered a dedicated app to test Microsoft's attribute-level permission gating on the
+      <code>employeeLeaveDateTime</code> attribute, confirming it requires its own narrow Graph
+      permission with no broader substitute, and validated the end-to-end client-credentials
+      flow via PowerShell, including token inspection and live attribute updates.
+    </p>
+    <h3>Single sign-on</h3>
+    <p>
+      Configured SSO for both major protocols: SAML via a gallery app running the full
+      sign-in/assertion flow, and OIDC via a custom app registration, including resolving a
+      reserved-claim-name conflict along the way.
+    </p>
+    <h3>Conditional Access &amp; PIM</h3>
+    <p>
+      Built and tested Conditional Access policies in Report-only mode, covering MFA
+      enforcement outside a trusted location (verified over VPN) and blocking legacy
+      authentication. Also tested a full Privileged Identity Management lifecycle, eligible
+      role, MFA-gated activation, justification, and approval, playing both the requestor and
+      the approver side of the workflow.
+    </p>
+  </section>
+
+  <section>
+    <h2><span class="num">08</span> Capstone: bulk provisioning at scale</h2>
+    <div class="capstone-block">
+      <p class="eyebrow-2">The exercise</p>
+      <p>
+        Led a bulk-provisioning exercise moving <strong>~3,000 midPoint-sourced identities</strong>
+        into Entra ID via Microsoft Graph and PowerShell, evaluating and deciding against
+        midPoint's native Entra connector in favor of a Bulk Create approach.
+      </p>
+      <ul class="facts">
+        <li><strong>Fixed an authentication-architecture bug:</strong> the integration kept forcing an interactive browser/WAM broker sign-in flow, which breaks down at real scale. Resolved by switching to app-only, client-credentials authentication.</li>
+        <li><strong>Proactively caught a data-quality issue</strong> affecting roughly 8% of records, before it could propagate into the target tenant.</li>
+        <li><strong>Correctly diagnosed a platform quota limit</strong> using tenant-level evidence, rather than assuming the failure was a bug in the provisioning logic itself.</li>
+      </ul>
+    </div>
   </section>
 
   <footer>
     <p>
-      All of this was built and run independently, outside any job or coursework requirement —
-      as a way to develop real IGA depth, not just IAM administration.
+      This project sharpened how I think about identity work: IAM and IGA matter equally,
+      because access granted correctly once doesn't stay correct on its own. Governance is
+      what keeps it that way.
     </p>
     <div class="links">
-      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://www.linkedin.com/in/catherine-nthama/" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
   </footer>
 </div>
