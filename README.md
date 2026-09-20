@@ -65,4 +65,4 @@ More screenshots exist from the build than are included here; this set was chose
 
 ## Contact
 
-[LinkedIn](#) · [Portfolio](https://cnthama.github.io/)
+[LinkedIn](https://www.linkedin.com/in/catherine-nthama/) · [Portfolio](https://cnthama.github.io/)
