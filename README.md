@@ -6,7 +6,7 @@ Built and governed 3,000+ synthetic identities to test governance controls at a 
 
 **Why two platforms instead of one:** midPoint gave full control over the governance model itself — building roles, certification campaigns, and SoD logic from scratch. Entra ID tested the same governance concepts against a real, unmodifiable cloud IdP's actual constraints, permission model, and workflow engine — the gap most self-hosted labs skip.
 
-📄 Full case study with narrative and screenshots: see the [portfolio page](index.html)
+📄 Full case study with narrative and screenshots: see the live [portfolio page](https://cnthama.github.io/)
 🐛 Real bugs hit and fixed, in Problem → Investigation → Root Cause → Resolution → Lesson format: [`troubleshooting.md`](troubleshooting.md)
 
 ---
@@ -65,4 +65,4 @@ More screenshots exist from the build than are included here; this set was chose
 
 ## Contact
 
-[LinkedIn](#) · [Portfolio](index.html)
+[LinkedIn](#) · [Portfolio](https://cnthama.github.io/)
